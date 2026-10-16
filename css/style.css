@@ -82,17 +82,16 @@ body {
   overflow-x: hidden;
   position: relative;
   
-  /* Nền SVĐ Huyền Thoại Bóng Đá: Messi, Ronaldo, Maradona rực sáng cùng dàn đèn pha */
+  /* Nền SVĐ Huyền Thoại Bóng Đá: Messi & Ronaldo đứng 2 bên cánh, tôn vinh đội hình ở giữa */
   background-color: var(--stadium-dark);
   background-image: 
     /* Lớp phủ gradient thể thao bảo đảm chữ & thẻ cầu thủ luôn tương phản nổi bật */
-    linear-gradient(180deg, rgba(2, 7, 22, 0.45) 0%, rgba(3, 11, 35, 0.65) 35%, rgba(2, 6, 23, 0.88) 100%),
-    /* Ánh đèn laser vàng kim & xanh cyan rọi từ trên đỉnh */
-    radial-gradient(circle at 50% 12%, rgba(0, 240, 255, 0.28) 0%, transparent 60%),
-    radial-gradient(circle at 15% 10%, rgba(255, 226, 89, 0.2) 0%, transparent 45%),
-    radial-gradient(circle at 85% 10%, rgba(0, 240, 255, 0.25) 0%, transparent 45%),
-    /* Ảnh SVĐ Huyền thoại bóng đá rực rỡ */
-    url('../assets/stadium-legends-bg.jpg');
+    linear-gradient(180deg, rgba(2, 7, 22, 0.3) 0%, rgba(3, 11, 35, 0.5) 35%, rgba(2, 6, 23, 0.82) 100%),
+    /* Ánh đèn laser vàng kim & xanh cyan rọi từ 2 phía */
+    radial-gradient(circle at 10% 25%, rgba(255, 226, 89, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 90% 25%, rgba(0, 240, 255, 0.25) 0%, transparent 45%),
+    /* Ảnh SVĐ Huyền thoại bóng đá bố cục 2 cánh chuẩn xác */
+    url('../assets/stadium-legends-flank.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
