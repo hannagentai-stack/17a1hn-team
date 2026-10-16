@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Danh sách Đội tuyển Điện tử 17A1HN - Giới thiệu thành viên, ban huấn luyện và cầu thủ thi đấu năm 2026.">
+  <meta name="theme-color" content="#0A3CC0">
+  
+  <title>Danh sách Đội tuyển Điện tử 17A1HN</title>
+
+  <!-- Google Fonts: Be Vietnam Pro (Hỗ trợ chuẩn tiếng Việt) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- File CSS tùy biến chính của poster -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Khung nội dung poster chính (giới hạn ~980px, căn giữa) -->
+  <div class="poster-container">
+    
+    <!-- 1. ĐẦU TRANG: Logo tròn nhỏ + Tiêu đề + Phụ đề giải đấu -->
+    <header class="poster-header" id="poster-header">
+      <noscript>
+        <!-- Fallback cho trình duyệt tắt JavaScript -->
+        <h1 class="poster-title">Danh sách Đội tuyển Điện tử 17A1HN</h1>
+        <p class="poster-subtitle">Mùa giải năm 2026</p>
+      </noscript>
+    </header>
+
+    <!-- 2. THÂN TRANG: Lưới 5 cột hiển thị logo đội + ban huấn luyện + cầu thủ -->
+    <main class="poster-main">
+      <ul class="team-grid" id="team-grid" aria-label="Danh sách ban huấn luyện và cầu thủ">
+        <!-- Nội dung các thẻ ảnh sẽ được render tự động từ js/players.js -->
+      </ul>
+
+      <!-- 3. HÀNG THÔNG TIN SỰ KIỆN: Thời gian bên trái - Địa điểm bên phải -->
+      <section class="event-info reveal-item" id="event-info" aria-label="Thông tin thời gian và địa điểm thi đấu">
+        <!-- Render tự động bởi JS -->
+      </section>
+    </main>
+
+  </div>
+
+  <!-- 4. CHÂN TRANG: Dải trắng toàn chiều rộng chứa logo các nhà tài trợ -->
+  <footer class="sponsors-footer" id="sponsors-footer" aria-label="Nhà tài trợ và đơn vị đồng hành">
+    <div class="sponsors-inner">
+      <!-- Logo nhà tài trợ render tự động bởi JS -->
+    </div>
+  </footer>
+
+  <!-- Dữ liệu đội tuyển và cầu thủ (dạng biến JS, chạy tốt khi mở file://) -->
+  <script src="js/players.js"></script>
+
+  <!-- Script render giao diện và xử lý hiệu ứng -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" width="100%" height="100%" preserveAspectRatio="xMidYMin slice">
+  <defs>
+    <!-- Gradient bầu trời đêm sân vận động -->
+    <linearGradient id="skyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="25%" stop-color="#051336"/>
+      <stop offset="55%" stop-color="#0B2564"/>
+      <stop offset="85%" stop-color="#061A45"/>
+      <stop offset="100%" stop-color="#020B1E"/>
+    </linearGradient>
+
+    <!-- Ánh sáng chùm đèn pha bên trái (Volumetric Light Beam) -->
+    <linearGradient id="beamLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.55"/>
+      <stop offset="25%" stop-color="#38BDF8" stop-opacity="0.25"/>
+      <stop offset="65%" stop-color="#1D4ED8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0B2564" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Ánh sáng chùm đèn pha bên phải -->
+    <linearGradient id="beamRight" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.55"/>
+      <stop offset="25%" stop-color="#38BDF8" stop-opacity="0.25"/>
+      <stop offset="65%" stop-color="#1D4ED8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0B2564" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Tâm đèn pha siêu sáng (Floodlight Core Glow) -->
+    <radialGradient id="lightFlare" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="20%" stop-color="#BAE6FD" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.45"/>
+      <stop offset="80%" stop-color="#0284C7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0369A1" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Tâm sáng rọi thẳng giữa sân -->
+    <radialGradient id="centerPitchSpot" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.4"/>
+      <stop offset="45%" stop-color="#1D4ED8" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0B2564" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Gradient các mảng chém thể thao (Speed Slash Lines) -->
+    <linearGradient id="slashGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#38BDF8" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#60A5FA" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="slashGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#1D4ED8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="turfFog" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#020A1C" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#041438" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0B2564" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Bộ lọc khói sương mờ sân vận động -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- 1. Nền bầu trời đêm sâu thẳm -->
+  <rect width="1920" height="1200" fill="url(#skyGrad)"/>
+
+  <!-- 2. Tâm sáng trung tâm poster -->
+  <rect width="1920" height="1200" fill="url(#centerPitchSpot)"/>
+
+  <!-- 3. Họa tiết vạch sân bóng đá (Football Pitch Geometry) mờ nghệ thuật -->
+  <g opacity="0.07" stroke="#38BDF8" stroke-width="2.5" fill="none">
+    <!-- Vòng tròn giữa sân bóng khổng lồ chìm phía sau -->
+    <circle cx="960" cy="580" r="380"/>
+    <circle cx="960" cy="580" r="6"/>
+    <!-- Đường phân đôi sân -->
+    <line x1="960" y1="0" x2="960" y2="1200"/>
+    <!-- Vòng cung khu vực 16m50 cách điệu -->
+    <path d="M 580,1200 C 580,950 1340,950 1340,1200"/>
+    <rect x="710" y="1000" width="500" height="200"/>
+  </g>
+
+  <!-- 4. Dáng vòm mái SVĐ & Hàng ghế khán đài bóng đá (Stadium Grandstand Silhouette) -->
+  <g opacity="0.22" fill="#030C22">
+    <!-- Khung vòm khán đài cong xa xăm -->
+    <path d="M 0,420 Q 960,260 1920,420 L 1920,680 L 0,680 Z"/>
+    <!-- Cột tháp kết cấu thép mái che SVĐ -->
+    <path d="M 120,420 L 140,240 L 160,420 Z" fill="#041233"/>
+    <path d="M 380,380 L 395,220 L 410,380 Z" fill="#041233"/>
+    <path d="M 1540,380 L 1525,220 L 1510,380 Z" fill="#041233"/>
+    <path d="M 1800,420 L 1780,240 L 1760,420 Z" fill="#041233"/>
+    <!-- Các tầng ghế khán đài mờ -->
+    <path d="M 0,520 Q 960,390 1920,520 L 1920,535 Q 960,405 0,535 Z" fill="#061B45" opacity="0.6"/>
+    <path d="M 0,560 Q 960,440 1920,560 L 1920,575 Q 960,455 0,575 Z" fill="#061B45" opacity="0.6"/>
+    <path d="M 0,610 Q 960,490 1920,610 L 1920,625 Q 960,505 0,625 Z" fill="#08235A" opacity="0.5"/>
+  </g>
+
+  <!-- 5. Các mảng đồ họa thể thao góc chéo (Dynamic Sports Energy Slashes) -->
+  <g opacity="0.45">
+    <!-- Mảng chém lớn góc trái xuống -->
+    <polygon points="-80,0 480,0 240,1200 -320,1200" fill="url(#slashGrad2)"/>
+    <!-- Dải sọc tốc độ cao (Speed stripes) -->
+    <polygon points="260,0 340,0 120,1200 40,1200" fill="url(#slashGrad1)" opacity="0.6"/>
+    <polygon points="370,0 400,0 200,1200 170,1200" fill="#38BDF8" opacity="0.15"/>
+
+    <!-- Mảng chém đối xứng góc phải -->
+    <polygon points="2000,0 1440,0 1680,1200 2240,1200" fill="url(#slashGrad2)"/>
+    <polygon points="1660,0 1580,0 1800,1200 1880,1200" fill="url(#slashGrad1)" opacity="0.6"/>
+    <polygon points="1550,0 1520,0 1720,1200 1750,1200" fill="#38BDF8" opacity="0.15"/>
+
+    <!-- Vệt sáng chéo trung tâm tạo chiều sâu -->
+    <polygon points="820,0 860,0 1140,1200 1100,1200" fill="url(#slashGrad1)" opacity="0.25"/>
+  </g>
+
+  <!-- 6. CHÙM ĐÈN PHA SÂN VẬN ĐỘNG (Stadium Floodlights) CỰC KỲ ẤN TƯỢNG -->
+  <!-- 6.1. Tia sáng quét từ tháp đèn bên trái -->
+  <polygon points="120,60 900,1200 200,1200" fill="url(#beamLeft)"/>
+  <polygon points="140,60 1400,1200 700,1200" fill="url(#beamLeft)" opacity="0.5"/>
+
+  <!-- 6.2. Tia sáng quét từ tháp đèn bên phải -->
+  <polygon points="1800,60 1020,1200 1720,1200" fill="url(#beamRight)"/>
+  <polygon points="1780,60 520,1200 1220,1200" fill="url(#beamRight)" opacity="0.5"/>
+
+  <!-- 6.3. Cụm dàn đèn pha thực tế (Floodlight Fixture Left) -->
+  <g transform="translate(70, 20)">
+    <!-- Quầng hào quang chói lóa tỏa rộng -->
+    <circle cx="80" cy="60" r="160" fill="url(#lightFlare)"/>
+    <!-- Giá đỡ dàn đèn thép góc nghiêng -->
+    <polygon points="30,80 130,40 135,52 35,92" fill="#0F172A"/>
+    <!-- 8 bóng đèn LED công suất lớn rực sáng -->
+    <circle cx="45" cy="82" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <circle cx="68" cy="73" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <circle cx="91" cy="64" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <circle cx="114" cy="55" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <!-- Hàng bóng thứ hai -->
+    <circle cx="50" cy="98" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+    <circle cx="73" cy="89" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+    <circle cx="96" cy="80" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+    <circle cx="119" cy="71" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+  </g>
+
+  <!-- 6.4. Cụm dàn đèn pha thực tế (Floodlight Fixture Right) -->
+  <g transform="translate(1690, 20)">
+    <!-- Quầng hào quang chói lóa -->
+    <circle cx="80" cy="60" r="160" fill="url(#lightFlare)"/>
+    <!-- Giá đỡ dàn đèn thép góc nghiêng -->
+    <polygon points="130,80 30,40 25,52 125,92" fill="#0F172A"/>
+    <!-- 8 bóng đèn LED công suất lớn -->
+    <circle cx="115" cy="82" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <circle cx="92" cy="73" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <circle cx="69" cy="64" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <circle cx="46" cy="55" r="10" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)"/>
+    <!-- Hàng bóng thứ hai -->
+    <circle cx="110" cy="98" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+    <circle cx="87" cy="89" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+    <circle cx="64" cy="80" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+    <circle cx="41" cy="71" r="9" fill="#FFFFFF" filter="drop-shadow(0 0 10px #38BDF8)"/>
+  </g>
+
+  <!-- 7. Hạt năng lượng thể thao lơ lửng trong không khí (Glowing Embers & Dust) -->
+  <g opacity="0.6">
+    <circle cx="340" cy="280" r="3.5" fill="#BAE6FD" filter="drop-shadow(0 0 6px #60A5FA)"/>
+    <circle cx="480" cy="180" r="2" fill="#FFFFFF"/>
+    <circle cx="620" cy="340" r="3" fill="#38BDF8" filter="drop-shadow(0 0 4px #38BDF8)"/>
+    <circle cx="850" cy="220" r="2.5" fill="#BAE6FD"/>
+    <circle cx="1080" cy="190" r="3" fill="#60A5FA"/>
+    <circle cx="1320" cy="310" r="3.5" fill="#38BDF8" filter="drop-shadow(0 0 6px #38BDF8)"/>
+    <circle cx="1490" cy="240" r="2" fill="#FFFFFF"/>
+    <circle cx="1600" cy="380" r="3" fill="#BAE6FD"/>
+    <circle cx="410" cy="520" r="2.5" fill="#38BDF8"/>
+    <circle cx="1520" cy="540" r="2" fill="#60A5FA"/>
+    <circle cx="960" cy="150" r="4" fill="#FFFFFF" filter="drop-shadow(0 0 8px #BAE6FD)"/>
+  </g>
+
+  <!-- 8. Lớp sương mù mặt sân (Ground Mist / Turf Fog) làm nền cho dải chân trang -->
+  <rect y="850" width="1920" height="350" fill="url(#turfFog)"/>
+</svg>

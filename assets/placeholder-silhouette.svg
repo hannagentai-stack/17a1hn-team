@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" width="100%" height="100%">
+  <defs>
+    <!-- Nền xanh bóng đêm SVĐ bí ẩn -->
+    <linearGradient id="silBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#07194A"/>
+      <stop offset="50%" stop-color="#041235"/>
+      <stop offset="100%" stop-color="#02081C"/>
+    </linearGradient>
+
+    <!-- Quầng sáng viền cầu thủ ngoại binh / tân binh bí ẩn -->
+    <linearGradient id="glowRim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+
+    <!-- Khối bóng Silhouette thể thao -->
+    <linearGradient id="silBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0C2568"/>
+      <stop offset="100%" stop-color="#040F2D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Nền tối 4:5 -->
+  <rect width="480" height="600" fill="url(#silBg)"/>
+
+  <!-- Backlight rực sáng từ sau lưng -->
+  <ellipse cx="240" cy="270" rx="180" ry="210" fill="#2563EB" opacity="0.38" filter="blur(32px)"/>
+
+  <!-- Dấu hỏi chấm thể thao / tân binh chuyển nhượng ẩn mờ -->
+  <text x="240" y="325" text-anchor="middle" fill="#38BDF8" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="190" font-weight="900" opacity="0.16">?</text>
+
+  <!-- Viền sáng hào quang (Rim light) bao quanh thể hình cầu thủ -->
+  <g filter="blur(4px)" opacity="0.85">
+    <path d="M 32,600 C 47,440 107,390 182,370 L 298,370 C 373,390 433,440 448,600 Z" fill="none" stroke="url(#glowRim)" stroke-width="4.5"/>
+    <path d="M 168,210 C 168,132 188,110 240,110 C 292,110 312,132 312,210 C 312,270 282,310 240,310 C 198,310 168,270 168,210 Z" fill="none" stroke="url(#glowRim)" stroke-width="4.5"/>
+  </g>
+
+  <!-- Khối bóng dáng cầu thủ chuẩn cơ bắp -->
+  <g fill="url(#silBody)">
+    <!-- Thân và vai áo đấu bóng đá -->
+    <path d="M 35,600 C 50,440 110,390 185,370 L 295,370 C 370,390 430,440 445,600 Z"/>
+    
+    <!-- Cổ -->
+    <path d="M 205,290 L 205,375 L 240,410 L 275,375 L 275,290 Z"/>
+
+    <!-- Đầu & Cằm -->
+    <path d="M 172,210 C 172,135 190,115 240,115 C 290,115 308,135 308,210 C 308,268 280,305 240,305 C 200,305 172,268 172,210 Z"/>
+
+    <!-- Tóc undercut -->
+    <path d="M 166,195 C 164,125 190,92 240,92 C 290,92 316,125 314,195 C 304,145 285,130 240,130 C 195,130 176,145 166,195 Z"/>
+  </g>
+
+  <!-- Chữ "TÂN BINH / NGOẠI BINH" ở đáy -->
+  <text x="240" y="555" text-anchor="middle" fill="#38BDF8" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="4" opacity="0.8">
+    BÍ MẬT / TÂN BINH
+  </text>
+</svg>
