@@ -34,7 +34,8 @@ const teamData = {
     columns: 5,               // Số cột trên màn hình desktop (mặc định: 5)
     showNumber: true,         // Bật/tắt hiển thị số áo ở đáy ảnh cầu thủ
     showRole: false,          // Bật/tắt hiển thị chức danh ban huấn luyện dưới ảnh (mặc định: false theo mẫu poster)
-    placeholderStyle: "studio" // Tùy chọn kiểu ảnh giữ chỗ: "studio" (phòng chụp sáng) hoặc "silhouette" (bóng người tối)
+    showTeamLogoInGrid: false, // Bật/tắt ô logo trong lưới (đã tắt theo yêu cầu, chỉ hiện ở đầu trang)
+    placeholderStyle: "studio" // Tùy chọn kiểu ảnh giữ chỗ: "studio" hoặc "silhouette"
   },
 
   // 3. NHÀ TÀI TRỢ & ĐỐI TÁC ĐỒNG HÀNH

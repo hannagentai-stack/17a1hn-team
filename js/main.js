@@ -86,17 +86,19 @@ function renderGrid(data) {
   let htmlItems = [];
   let itemIndex = 0; // Dùng để tạo độ trễ hoạt ảnh so le (stagger delay)
 
-  // 2.1. Ô ĐẦU TIÊN: LOGO ĐỘI LỚN
-  const teamLogoSrc = data.teamLogo || "assets/logo.svg";
-  htmlItems.push(`
-    <li class="team-grid-item team-logo-card reveal-item" style="--delay-index: ${itemIndex++};">
-      <div class="logo-spacer" aria-hidden="true"></div>
-      <div class="logo-box-inner" title="${escapeHtml(data.teamName || 'Logo Đội tuyển')}">
-        <img src="${escapeHtml(teamLogoSrc)}" alt="Logo ${escapeHtml(data.teamName || '')}" class="big-team-logo" loading="lazy" onerror="this.onerror=null; this.src='assets/logo.svg';">
-        <span class="logo-box-caption">${escapeHtml(data.teamName || "17A1HN")}</span>
-      </div>
-    </li>
-  `);
+  // 2.1. Ô ĐẦU TIÊN: LOGO ĐỘI (Chỉ render nếu config.showTeamLogoInGrid = true)
+  if (config.showTeamLogoInGrid === true) {
+    const teamLogoSrc = data.teamLogo || "assets/Logo.jpg";
+    htmlItems.push(`
+      <li class="team-grid-item team-logo-card reveal-item" style="--delay-index: ${itemIndex++};">
+        <div class="logo-spacer" aria-hidden="true"></div>
+        <div class="logo-box-inner" title="${escapeHtml(data.teamName || 'Logo Đội tuyển')}">
+          <img src="${escapeHtml(teamLogoSrc)}" alt="Logo ${escapeHtml(data.teamName || '')}" class="big-team-logo" loading="lazy" onerror="this.onerror=null; this.src='assets/logo.svg';">
+          <span class="logo-box-caption">${escapeHtml(data.teamName || "17A1HN")}</span>
+        </div>
+      </li>
+    `);
+  }
 
   // 2.2. BAN HUẤN LUYỆN (STAFF)
   if (Array.isArray(data.staff) && data.staff.length > 0) {
