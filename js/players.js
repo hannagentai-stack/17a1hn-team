@@ -19,7 +19,7 @@
 const teamData = {
   // 1. THÔNG TIN CHUNG CỦA ĐỘI VÀ SỰ KIỆN
   teamName: "ĐỘI TUYỂN ĐIỆN TỬ 17A1HN",
-  title: "Danh sách Đội tuyển Điện tử 17A1HN",
+  title: "Đội tuyển Điện tử 17A1HN",
   subtitle: "Giải Bóng Đá Sinh Viên Khoa Điện Tử Và Kỹ Thuật Máy Tính Năm 2026",
 
   // Đường dẫn logo đội hiển thị ở đầu trang và ô đầu tiên của lưới

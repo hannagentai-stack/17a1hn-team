@@ -241,14 +241,17 @@ function setupNameAutoFit() {
 
 function adjustAllNameSizes() {
   const personCards = document.querySelectorAll(".person-card");
+  const isMobile = window.innerWidth < 480;
+  const isTablet = window.innerWidth < 768;
   
   personCards.forEach((card) => {
     const nameEl = card.querySelector(".person-name");
     const photoWrapper = card.querySelector(".person-photo-wrapper");
     if (!nameEl || !photoWrapper) return;
 
-    // Chiều cao khả dụng dọc theo ảnh (trừ 8px khoảng thở trên dưới)
-    const availableHeight = photoWrapper.clientHeight - 8;
+    // Chiều cao khả dụng dọc theo ảnh
+    const paddingOffset = isMobile ? 3 : 8;
+    const availableHeight = photoWrapper.clientHeight - paddingOffset;
     if (availableHeight <= 0) return;
 
     // Khôi phục cỡ chữ ban đầu
@@ -257,15 +260,16 @@ function adjustAllNameSizes() {
     nameEl.style.transform = "rotate(180deg)";
 
     // Lấy kích thước chữ mặc định được tính bởi CSS
-    let currentFontSize = parseFloat(window.getComputedStyle(nameEl).fontSize) || 13;
-    const minFontSize = 9.5; // Ngưỡng an toàn không để chữ quá bé
+    let currentFontSize = parseFloat(window.getComputedStyle(nameEl).fontSize) || (isMobile ? 7.5 : 13);
+    const minFontSize = isMobile ? 5.2 : (isTablet ? 7.2 : 9.5); // Ngưỡng an toàn theo kích thước màn hình
 
     // Đo chiều dài của chuỗi tên xoay dọc (dùng getBoundingClientRect để chính xác)
     let renderedHeight = nameEl.getBoundingClientRect().height;
 
-    // Giảm dần cỡ chữ từng bước 0.4px cho đến khi vừa khít
+    // Giảm dần cỡ chữ từng bước cho đến khi vừa khít
+    const step = isMobile ? 0.2 : 0.4;
     while (renderedHeight > availableHeight && currentFontSize > minFontSize) {
-      currentFontSize -= 0.4;
+      currentFontSize -= step;
       nameEl.style.fontSize = `${currentFontSize}px`;
       renderedHeight = nameEl.getBoundingClientRect().height;
     }
@@ -273,13 +277,14 @@ function adjustAllNameSizes() {
     // Nếu tên vẫn quá dài ở cỡ chữ tối thiểu (ví dụ màn hình điện thoại rất bé)
     // thì thu hẹp nhẹ khoảng cách ký tự (letter-spacing)
     if (renderedHeight > availableHeight) {
-      nameEl.style.letterSpacing = "-0.2px";
+      nameEl.style.letterSpacing = isMobile ? "-0.3px" : "-0.2px";
       renderedHeight = nameEl.getBoundingClientRect().height;
     }
 
     // Biện pháp bảo vệ cuối cùng: thu nhỏ tỉ lệ nhẹ nếu vẫn chớm vượt
     if (renderedHeight > availableHeight) {
-      const scaleFactor = Math.max(0.85, availableHeight / renderedHeight);
+      const minScale = isMobile ? 0.65 : 0.85;
+      const scaleFactor = Math.max(minScale, availableHeight / renderedHeight);
       nameEl.style.transform = `rotate(180deg) scale(${scaleFactor.toFixed(2)})`;
     }
   });

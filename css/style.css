@@ -152,7 +152,7 @@ body {
   display: block;
 }
 
-/* Dòng 1: Tiêu đề thể thao mạ ánh bạc metallic */
+/* Dòng 1: Tiêu đề thể thao mạ ánh bạc metallic sáng rực trên mọi màn hình */
 .poster-title {
   font-size: var(--font-size-title);
   font-weight: 900;
@@ -160,10 +160,8 @@ body {
   letter-spacing: 0.5px;
   margin-bottom: 8px;
   text-transform: uppercase;
-  background: linear-gradient(180deg, #FFFFFF 0%, #E0F2FE 55%, #BAE6FD 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.8));
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 20px rgba(56, 189, 248, 0.7);
 }
 
 /* Dòng 2: Phụ đề dạng huy hiệu giải đấu (Matchday tournament tag) */
@@ -324,11 +322,13 @@ body {
               border-color 0.35s ease;
 }
 
-/* Hiệu ứng rê chuột thể thao bóng đá: Phóng to, viền cyan rực sáng */
-.person-card:hover .person-photo-wrapper {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: var(--card-glow-hover);
-  border-color: var(--card-border-hover);
+/* Hiệu ứng rê chuột thể thao bóng đá: Phóng to, viền cyan rực sáng (chỉ trên thiết bị hỗ trợ hover) */
+@media (hover: hover) {
+  .person-card:hover .person-photo-wrapper {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: var(--card-glow-hover);
+    border-color: var(--card-border-hover);
+  }
 }
 
 .person-img {
@@ -496,26 +496,21 @@ body {
 
 /* -------------------------------------------------------------------------- */
 /* 9. THIẾT KẾ ĐÁP ỨNG ĐA THIẾT BỊ (RESPONSIVE BREAKPOINTS)                    */
+/* LUÔN DUY TRÌ 5 CỘT (3 HÀNG X 5 CỘT = 15 CẦU THỦ) TRÊN MỌI THIẾT BỊ         */
 /* -------------------------------------------------------------------------- */
 
-/* Tablet ngang (768px - 1023px): 4 cột */
-@media (max-width: 1023px) and (min-width: 768px) {
+/* Tablet & Màn hình trung bình (480px - 1023px): 5 cột cân đối */
+@media (max-width: 1023px) and (min-width: 480px) {
   :root {
-    --grid-columns: 4;
-    --grid-gap: 16px;
+    --grid-columns: 5;
+    --grid-gap: 8px;
+    --name-col-width: 17%;
+    --card-radius: 6px;
+    --font-size-name: 10.5px;
   }
   
   .poster-container {
-    padding-top: 28px;
-  }
-}
-
-/* Tablet dọc & Điện thoại lớn (480px - 767px): 3 cột */
-@media (max-width: 767px) and (min-width: 480px) {
-  :root {
-    --grid-columns: 3;
-    --grid-gap: 14px;
-    --name-col-width: 19%;
+    padding: 24px 12px 20px;
   }
 
   .header-logo-wrapper {
@@ -524,67 +519,119 @@ body {
     margin-bottom: 10px;
   }
 
-  .event-info {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    text-align: center;
+  .jersey-number {
+    min-width: 26px;
+    height: 20px;
+    font-size: 13px;
+    bottom: 5px;
+    padding: 0 5px;
   }
 
-  .sponsors-inner {
-    gap: 20px 32px;
+  .event-info {
+    font-size: 13px;
+    padding: 10px 16px;
   }
 }
 
-/* Điện thoại nhỏ (< 480px): 2 cột */
+/* Điện thoại di động (< 480px): Chuẩn 5 cột x 3 hàng, sắc nét, không bị vỡ */
 @media (max-width: 479px) {
   :root {
-    --grid-columns: 2;
-    --grid-gap: 12px;
-    --name-col-width: 20%;
-    --font-size-name: 11.5px;
+    --grid-columns: 5;
+    --grid-gap: 4px;
+    --name-col-width: 13px;
+    --font-size-name: 7.5px;
+    --card-radius: 4px;
   }
 
   .poster-container {
-    padding: 20px 12px 16px;
+    padding: 12px 4px 16px;
+  }
+
+  .poster-header {
+    margin-bottom: 12px;
   }
 
   .header-logo-wrapper {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 8px;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 6px;
+    padding: 2px;
   }
 
   .poster-title {
-    font-size: 20px;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    margin-bottom: 5px;
+    line-height: 1.25;
   }
 
   .poster-subtitle {
-    font-size: 12.5px;
-    padding: 4px 12px;
+    font-size: 9px;
+    padding: 3px 8px;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+    border-radius: 12px;
+  }
+
+  .team-grid {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .person-card {
+    align-items: stretch;
+  }
+
+  .person-name-col {
+    width: 13px;
+    padding-bottom: 2px;
+    padding-right: 2px;
+  }
+
+  .person-name {
+    font-size: 7.5px;
+    letter-spacing: 0.1px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+  }
+
+  .person-photo-wrapper {
+    border-width: 1px;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.65);
   }
 
   .jersey-number {
-    min-width: 32px;
-    height: 24px;
-    font-size: 16px;
-    bottom: 6px;
+    min-width: 18px;
+    height: 14px;
+    font-size: 9.5px;
+    font-weight: 900;
+    padding: 0 3px;
+    bottom: 2px;
+    border-radius: 2.5px;
+    border-width: 1px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
   }
 
   .event-info {
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    font-size: 12.5px;
+    gap: 4px;
+    font-size: 11px;
+    padding: 8px 10px;
     text-align: center;
+    margin-top: 6px;
+  }
+
+  .sponsors-footer {
+    padding: 10px 8px;
   }
 
   .sponsors-inner {
-    gap: 16px 24px;
+    gap: 12px 16px;
   }
 
   .sponsor-logo {
-    max-height: 28px;
-    max-width: 100px;
+    max-height: 22px;
+    max-width: 80px;
   }
 }
