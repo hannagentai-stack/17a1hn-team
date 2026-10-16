@@ -56,7 +56,7 @@ const teamData = {
     },
     {
       number: 31,
-      name: "Nguyễn Văn Sinh", // Tên mẫu 3 chữ
+      name: "Nguyễn Văn Sinh",
       photo: "assets/Members/NguyenVanSinh.jpg"
     },
     {
@@ -66,7 +66,7 @@ const teamData = {
     },
     {
       number: 9,
-      name: "Nguyễn Huy Hân", // Tên mẫu 4 chữ
+      name: "Nguyễn Huy Hân",
       photo: "assets/Members/NguyenHuyHan.jpg"
     },
     {
@@ -76,7 +76,7 @@ const teamData = {
     },
     {
       number: 19,
-      name: "Ngô Huy Tung", // Tên mẫu 4 chữ
+      name: "Ngô Huy Tùng",
       photo: "assets/Members/NgoHuyTung.jpg"
     },
     {
@@ -86,7 +86,7 @@ const teamData = {
     },
     {
       number: 11,
-      name: "Khương Đình Dũng", // Tên mẫu 5 chữ (dài nhất để test auto-fit)
+      name: "Khương Đình Dũng",
       photo: "assets/Members/KhuongDinhDung.jpg"
     },
     {
@@ -96,7 +96,7 @@ const teamData = {
     },
     {
       number: 24,
-      name: "Nguyễn Văn Trung", // Tên mẫu 4 chữ
+      name: "Nguyễn Văn Trung",
       photo: "assets/Members/NguyenVanTrung.jpg"
     },
     {
@@ -106,13 +106,18 @@ const teamData = {
     },
     {
       number: 26,
-      name: "Lại Đức Hưởng", // Tên mẫu 5 chữ (test auto-fit)
+      name: "Lại Đức Hưởng",
       photo: "assets/Members/LaiDucHuong.jpg"
     },
     {
       number: 10,
-      name: "Đỗ Duy Thái", // Tên mẫu 4 chữ
+      name: "Đỗ Duy Thái",
       photo: "assets/Members/DoDuyThai.jpg"
+    },
+    {
+      number: 3,
+      name: "Phạm Anh Sơn",
+      photo: "assets/Members/PhamAnhSon.jpg"
     },
     {
       number: 12,
