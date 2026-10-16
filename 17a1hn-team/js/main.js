@@ -61,7 +61,7 @@ function renderHeader(data) {
 
   headerContainer.innerHTML = `
     <div class="header-logo-wrapper" title="${escapeHtml(data.teamName || 'Logo Đội')}">
-      <img src="${escapeHtml(logoSrc)}" alt="Logo ${escapeHtml(data.teamName || '')}" class="header-logo-img">
+      <img src="${escapeHtml(logoSrc)}" alt="Logo ${escapeHtml(data.teamName || '')}" class="header-logo-img" onerror="this.onerror=null; this.src='assets/logo.svg';">
     </div>
     <h1 class="poster-title">${escapeHtml(titleText)}</h1>
     ${subtitleText ? `<p class="poster-subtitle">${escapeHtml(subtitleText)}</p>` : ""}
@@ -92,7 +92,7 @@ function renderGrid(data) {
     <li class="team-grid-item team-logo-card reveal-item" style="--delay-index: ${itemIndex++};">
       <div class="logo-spacer" aria-hidden="true"></div>
       <div class="logo-box-inner" title="${escapeHtml(data.teamName || 'Logo Đội tuyển')}">
-        <img src="${escapeHtml(teamLogoSrc)}" alt="Logo ${escapeHtml(data.teamName || '')}" class="big-team-logo" loading="lazy">
+        <img src="${escapeHtml(teamLogoSrc)}" alt="Logo ${escapeHtml(data.teamName || '')}" class="big-team-logo" loading="lazy" onerror="this.onerror=null; this.src='assets/logo.svg';">
         <span class="logo-box-caption">${escapeHtml(data.teamName || "17A1HN")}</span>
       </div>
     </li>
@@ -134,7 +134,9 @@ function renderGrid(data) {
           : "assets/placeholder-player.svg";
       }
 
-      const hasNumber = showNumber && (player.number !== undefined && player.number !== null && player.number !== "");
+      const defaultPlaceholder = placeholderStyle === "silhouette" 
+        ? "assets/placeholder-silhouette.svg" 
+        : "assets/placeholder-player.svg";
 
       htmlItems.push(`
         <li class="team-grid-item person-card reveal-item" data-type="player" style="--delay-index: ${itemIndex++};">
@@ -142,7 +144,7 @@ function renderGrid(data) {
             <span class="person-name">${escapeHtml(player.name)}</span>
           </div>
           <div class="person-photo-wrapper">
-            <img src="${escapeHtml(photoSrc)}" alt="${escapeHtml(player.name)}${hasNumber ? ' - Số ' + player.number : ''}" class="person-img" loading="lazy">
+            <img src="${escapeHtml(photoSrc)}" alt="${escapeHtml(player.name)}${hasNumber ? ' - Số ' + player.number : ''}" class="person-img" loading="lazy" onerror="this.onerror=null; this.src='${defaultPlaceholder}';">
             ${hasNumber ? `<span class="jersey-number">${player.number}</span>` : ""}
           </div>
         </li>

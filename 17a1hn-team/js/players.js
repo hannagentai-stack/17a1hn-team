@@ -23,9 +23,8 @@ const teamData = {
   subtitle: "Giải Bóng Đá Sinh Viên Khoa Điện Tử Và Kỹ Thuật Máy Tính Năm 2026",
 
   // Đường dẫn logo đội hiển thị ở đầu trang và ô đầu tiên của lưới
-  headerLogo: "assets/logo.jpg",
-  teamLogo: "assets/logo.jpg",
-
+  headerLogo: "assets/Logo.jpg",
+  teamLogo: "assets/Logo.jpg",
   // Dòng thông tin sự kiện hiển thị dưới lưới ảnh
   timeText: "",
   placeText: "",
