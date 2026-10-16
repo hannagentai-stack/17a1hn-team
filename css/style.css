@@ -82,24 +82,24 @@ body {
   overflow-x: hidden;
   position: relative;
   
-  /* Lớp nền phối hợp giữa Dàn Đèn Pha SVG + Quầng sáng động CSS */
+  /* Nền SVĐ Huyền Thoại Bóng Đá: Messi, Ronaldo, Maradona rực sáng cùng dàn đèn pha */
   background-color: var(--stadium-dark);
   background-image: 
-    /* Ánh đèn pha rọi mạnh từ góc trên trái */
-    radial-gradient(circle at 12% 5%, rgba(0, 240, 255, 0.42) 0%, rgba(14, 165, 233, 0.2) 28%, transparent 55%),
-    /* Ánh đèn pha rọi mạnh từ góc trên phải */
-    radial-gradient(circle at 88% 5%, rgba(0, 240, 255, 0.42) 0%, rgba(14, 165, 233, 0.2) 28%, transparent 55%),
-    /* Vầng sáng rọi giữa trung tâm đội hình */
-    radial-gradient(ellipse at 50% 32%, rgba(37, 99, 235, 0.38) 0%, rgba(5, 21, 59, 0.8) 60%, transparent 80%),
-    /* File SVG dàn đèn, khán đài, vạch sân bóng đá và vệt chém thể thao */
-    url('../assets/stadium-bg.svg');
+    /* Lớp phủ gradient thể thao bảo đảm chữ & thẻ cầu thủ luôn tương phản nổi bật */
+    linear-gradient(180deg, rgba(2, 7, 22, 0.45) 0%, rgba(3, 11, 35, 0.65) 35%, rgba(2, 6, 23, 0.88) 100%),
+    /* Ánh đèn laser vàng kim & xanh cyan rọi từ trên đỉnh */
+    radial-gradient(circle at 50% 12%, rgba(0, 240, 255, 0.28) 0%, transparent 60%),
+    radial-gradient(circle at 15% 10%, rgba(255, 226, 89, 0.2) 0%, transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(0, 240, 255, 0.25) 0%, transparent 45%),
+    /* Ảnh SVĐ Huyền thoại bóng đá rực rỡ */
+    url('../assets/stadium-legends-bg.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   background-attachment: fixed;
 }
 
-/* Lớp vệt chém thể thao ánh sáng động */
+/* Lớp vệt chém thể thao & ánh sáng hào quang chuyển động */
 body::before {
   content: "";
   position: fixed;
@@ -108,8 +108,9 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 70%),
-    repeating-linear-gradient(45deg, transparent, transparent 120px, rgba(56, 189, 248, 0.015) 120px, rgba(56, 189, 248, 0.015) 122px);
+    radial-gradient(circle at 20% 25%, rgba(255, 226, 89, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 25%, rgba(0, 240, 255, 0.16) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(56, 189, 248, 0.02) 100px, rgba(56, 189, 248, 0.02) 102px);
   pointer-events: none;
   z-index: 1;
 }
