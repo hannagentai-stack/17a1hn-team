@@ -2,12 +2,13 @@
  * ==============================================================================
  * STYLE CHO POSTER ĐỘI BÓNG ĐÁ ĐIỆN TỬ 17A1HN
  * ==============================================================================
- * Phiên bản: Giao diện Thể thao Bóng đá Đỉnh cao (Football Matchday Edition)
- * - Nền SVĐ bóng đá đêm rực sáng dàn đèn pha (Stadium Floodlights) & sương đêm
+ * Phiên bản: Giao diện Thể thao Bóng đá Đỉnh cao (Pro Matchday Champions Edition)
+ * - Nền SVĐ bóng đá đêm rực sáng dàn đèn pha 4 góc (Stadium Floodlights) & sương đêm
  * - Các vệt chém thể thao sắc nét, vạch sân bóng mờ ảo
- * - Thẻ cầu thủ phong cách EA FC / Nike Football với viền sáng thể thao
- * - Badge số áo bóng đá nổi bật trên mọi màu áo
- * - Tên xoay dọc góc cạnh nam tính, tự động fit khung
+ * - Lưới 5 CỘT X 3 HÀNG CHUẨN XÁC 100% TRÊN MỌI THIẾT BỊ (Desktop, Tablet, Mobile)
+ * - Thẻ cầu thủ phong cách EA SPORTS FC / Champions League với ánh kim Holographic
+ * - Badge số áo mạ viền vàng kim sắc sảo, nổi bật tuyệt đối
+ * - Tên xoay dọc góc cạnh nam tính, tự động auto-fit vừa khít ảnh
  * - Dải nhà tài trợ đáy trang trọng, sắc sảo
  * ==============================================================================
  */
@@ -21,8 +22,10 @@
   --stadium-blue-deep: #05153B;     /* Xanh navy khán đài đêm */
   --stadium-blue-mid: #0B2564;      /* Xanh thể thao trung tâm */
   --stadium-cyan: #38BDF8;          /* Xanh cyan đèn pha rực sáng */
+  --stadium-cyan-bright: #00F0FF;   /* Cyan laser rực rỡ */
   --stadium-cyan-glow: #0284C7;     /* Ánh sáng hào quang sân cỏ */
   --stadium-gold: #FFE259;          /* Vàng kim cúp vô địch */
+  --stadium-gold-glow: rgba(255, 226, 89, 0.55);
 
   --text-primary: #FFFFFF;          /* Chữ chính: Trắng tuyết */
   --text-secondary: #BAE6FD;        /* Chữ phụ: Xanh băng tuyết */
@@ -32,28 +35,24 @@
   --footer-bg: #FFFFFF;             /* Nền dải nhà tài trợ ở đáy */
   --footer-text: #0F172A;           /* Màu chữ chân trang */
 
-  --jersey-player: #FFFFFF;         /* Màu áo đấu cầu thủ */
-  --jersey-staff: #1E50C8;          /* Màu áo ban huấn luyện */
-
   /* Hiệu ứng viền & bóng đổ thể thao chuyên nghiệp (Pro Sports FX) */
-  --card-border: rgba(96, 165, 250, 0.45);
-  --card-border-hover: #38BDF8;
-  --card-shadow: 0 10px 26px rgba(0, 0, 0, 0.65), 0 0 12px rgba(11, 37, 100, 0.4);
-  --card-glow-hover: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 24px rgba(56, 189, 248, 0.7);
+  --card-border: rgba(56, 189, 248, 0.55);
+  --card-border-hover: #00F0FF;
+  --card-shadow: 0 10px 28px rgba(0, 0, 0, 0.75), 0 0 16px rgba(11, 37, 100, 0.5);
+  --card-glow-hover: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 240, 255, 0.85);
 
   /* Font chữ & kích thước */
   --font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-size-title: clamp(22px, 3.4vw, 32px);
-  --font-size-subtitle: clamp(13px, 1.8vw, 16px);
-  --font-size-name: 13px;
-  --font-size-number: clamp(18px, 2.2vw, 22px);
+  --font-size-title: clamp(20px, 3.2vw, 32px);
+  --font-size-subtitle: clamp(12px, 1.6vw, 15px);
+  --font-size-name: 12.5px;
+  --font-size-number: clamp(16px, 2vw, 20px);
   --font-size-event: 14px;
   --font-size-role: 11px;
 
   /* Bố cục & khoảng cách */
   --container-max-width: 980px;     /* Chiều rộng tối đa poster */
-  --grid-columns: 5;                /* Số cột mặc định desktop */
-  --grid-gap: 18px;                 /* Khoảng cách giữa các ô */
+  --grid-gap: 16px;                 /* Khoảng cách giữa các ô desktop */
   --card-radius: 8px;               /* Bo góc thẻ thể thao */
   --name-col-width: 18%;            /* Bề rộng cột tên */
 }
@@ -87,11 +86,11 @@ body {
   background-color: var(--stadium-dark);
   background-image: 
     /* Ánh đèn pha rọi mạnh từ góc trên trái */
-    radial-gradient(circle at 10% 5%, rgba(56, 189, 248, 0.38) 0%, rgba(14, 165, 233, 0.15) 30%, transparent 55%),
+    radial-gradient(circle at 12% 5%, rgba(0, 240, 255, 0.42) 0%, rgba(14, 165, 233, 0.2) 28%, transparent 55%),
     /* Ánh đèn pha rọi mạnh từ góc trên phải */
-    radial-gradient(circle at 90% 5%, rgba(56, 189, 248, 0.38) 0%, rgba(14, 165, 233, 0.15) 30%, transparent 55%),
-    /* Vầng sáng rọi giữa đội hình trung tâm */
-    radial-gradient(ellipse at 50% 30%, rgba(37, 99, 235, 0.32) 0%, transparent 65%),
+    radial-gradient(circle at 88% 5%, rgba(0, 240, 255, 0.42) 0%, rgba(14, 165, 233, 0.2) 28%, transparent 55%),
+    /* Vầng sáng rọi giữa trung tâm đội hình */
+    radial-gradient(ellipse at 50% 32%, rgba(37, 99, 235, 0.38) 0%, rgba(5, 21, 59, 0.8) 60%, transparent 80%),
     /* File SVG dàn đèn, khán đài, vạch sân bóng đá và vệt chém thể thao */
     url('../assets/stadium-bg.svg');
   background-repeat: no-repeat;
@@ -100,12 +99,27 @@ body {
   background-attachment: fixed;
 }
 
+/* Lớp vệt chém thể thao ánh sáng động */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 70%),
+    repeating-linear-gradient(45deg, transparent, transparent 120px, rgba(56, 189, 248, 0.015) 120px, rgba(56, 189, 248, 0.015) 122px);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* Khung poster chính */
 .poster-container {
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 36px 20px 24px;
+  padding: 32px 18px 24px;
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
@@ -118,30 +132,80 @@ body {
 /* -------------------------------------------------------------------------- */
 .poster-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
-/* Logo tròn có vòng hào quang vàng kim */
+/* Badge Matchday HUD tag trên đỉnh */
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stadium-gold);
+  background: rgba(2, 6, 23, 0.85);
+  border: 1px solid rgba(255, 226, 89, 0.5);
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 12px rgba(255, 226, 89, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--stadium-gold);
+  box-shadow: 0 0 8px var(--stadium-gold);
+  animation: pulseGoldDot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGoldDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+/* Logo tròn có vòng hào quang vàng kim + cyan */
 .header-logo-wrapper {
-  width: 68px;
-  height: 68px;
-  margin-bottom: 14px;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 12px;
   border-radius: 50%;
   padding: 3px;
-  background: linear-gradient(135deg, #FFE259 0%, #FFA751 50%, #38BDF8 100%);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(56, 189, 248, 0.5);
+  background: linear-gradient(135deg, #FFE259 0%, #FFA751 45%, #00F0FF 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.35s ease;
+  position: relative;
+}
+
+.header-logo-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(56, 189, 248, 0.6);
+  pointer-events: none;
+  animation: rotateRing 20s linear infinite;
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .header-logo-wrapper:hover {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 226, 89, 0.75);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 28px rgba(255, 226, 89, 0.85);
 }
 
 .header-logo-img {
@@ -150,6 +214,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   display: block;
+  z-index: 1;
 }
 
 /* Dòng 1: Tiêu đề thể thao mạ ánh bạc metallic sáng rực trên mọi màn hình */
@@ -157,11 +222,15 @@ body {
   font-size: var(--font-size-title);
   font-weight: 900;
   line-height: 1.25;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   margin-bottom: 8px;
   text-transform: uppercase;
   color: #FFFFFF;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 20px rgba(56, 189, 248, 0.7);
+  text-shadow: 
+    0 2px 0 rgba(0, 0, 0, 0.95),
+    0 4px 12px rgba(0, 0, 0, 0.9),
+    0 0 22px rgba(56, 189, 248, 0.8),
+    0 0 40px rgba(0, 240, 255, 0.4);
 }
 
 /* Dòng 2: Phụ đề dạng huy hiệu giải đấu (Matchday tournament tag) */
@@ -171,33 +240,39 @@ body {
   gap: 8px;
   font-size: var(--font-size-subtitle);
   font-weight: 700;
-  color: var(--stadium-cyan);
+  color: #BAE6FD;
   line-height: 1.35;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  padding: 5px 18px;
-  background: rgba(11, 37, 100, 0.6);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  padding: 6px 18px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(11, 37, 100, 0.75) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.cup-icon {
+  fill: var(--stadium-gold);
+  filter: drop-shadow(0 0 6px rgba(255, 226, 89, 0.7));
+  flex-shrink: 0;
 }
 
 /* -------------------------------------------------------------------------- */
-/* 4. LƯỚI THÀNH VIÊN ĐỘI BÓNG (FOOTBALL SQUAD GRID)                           */
+/* 4. LƯỚI THÀNH VIÊN ĐỘI BÓNG: LUÔN CỐ ĐỊNH 5 CỘT (FOOTBALL SQUAD GRID)      */
 /* -------------------------------------------------------------------------- */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-  gap: var(--grid-gap);
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important; /* Luôn luôn 5 cột = 3 hàng x 5 cột */
+  gap: var(--grid-gap) !important;
   list-style: none;
   padding: 0;
   margin: 0 0 24px 0;
   width: 100%;
 }
 
-/* Ô đầu tiên: Thẻ Logo Đội Vô Địch (Team Crest Card) */
+/* Ô Logo Đội nếu được bật trong lưới */
 .team-logo-card {
   display: flex;
   flex-direction: row;
@@ -218,7 +293,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 12px;
+  padding: 14px 10px;
   box-shadow: var(--card-shadow), 0 0 14px rgba(255, 226, 89, 0.35);
   border: 2px solid rgba(255, 226, 89, 0.85);
   transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1), 
@@ -234,22 +309,9 @@ body {
   border-color: #FFE259;
 }
 
-/* Vệt sáng kim loại chạy qua thẻ logo */
-.logo-box-inner::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%);
-  pointer-events: none;
-  transform: rotate(25deg);
-}
-
 .big-team-logo {
   width: 82%;
-  max-width: 120px;
+  max-width: 110px;
   height: auto;
   aspect-ratio: 1 / 1;
   display: block;
@@ -258,7 +320,7 @@ body {
 }
 
 .logo-box-caption {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 11px;
   font-weight: 900;
   color: #0A3CC0;
@@ -286,8 +348,8 @@ body {
   flex-direction: column;
   justify-content: flex-end; /* Căn sát đáy ảnh */
   align-items: center;
-  padding-bottom: 4px;
-  padding-right: 4px;
+  padding-bottom: 3px;
+  padding-right: 3px;
   overflow: hidden;
 }
 
@@ -297,12 +359,14 @@ body {
   transform: rotate(180deg);
   white-space: nowrap;
   font-size: var(--font-size-name);
-  font-weight: 700;
+  font-weight: 800;
   color: #FFFFFF;
   line-height: 1;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 8px rgba(14, 165, 233, 0.7);
+  text-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 0 8px rgba(56, 189, 248, 0.85);
   display: inline-block;
   transform-origin: center center;
 }
@@ -316,10 +380,24 @@ body {
   overflow: hidden;
   box-shadow: var(--card-shadow);
   border: 1.5px solid var(--card-border);
-  background-color: #05143A;
+  background: radial-gradient(circle at 50% 30%, #0c2d6e 0%, #030a1e 100%);
   transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1),
               box-shadow 0.35s ease,
               border-color 0.35s ease;
+}
+
+/* Vệt sáng holographic quét qua thẻ ảnh khi rê chuột */
+.card-glass-shine {
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: left 0.75s cubic-bezier(0.2, 0, 0.2, 1);
+  z-index: 2;
 }
 
 /* Hiệu ứng rê chuột thể thao bóng đá: Phóng to, viền cyan rực sáng (chỉ trên thiết bị hỗ trợ hover) */
@@ -328,6 +406,10 @@ body {
     transform: translateY(-6px) scale(1.04);
     box-shadow: var(--card-glow-hover);
     border-color: var(--card-border-hover);
+  }
+
+  .person-card:hover .card-glass-shine {
+    left: 150%;
   }
 }
 
@@ -340,28 +422,28 @@ body {
 }
 
 /* SỐ ÁO BÓNG ĐÁ (MATCHDAY JERSEY NUMBER BADGE) */
-/* Thiết kế dạng huy hiệu số áo thể thao chuyên nghiệp, cực kỳ nổi bật trên nền áo trắng */
+/* Thiết kế huy hiệu kim loại dập nổi sang trọng, viền vàng kim sắc nét */
 .jersey-number {
   position: absolute;
-  bottom: 8px;
+  bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 38px;
-  height: 28px;
-  padding: 0 8px;
-  background: linear-gradient(180deg, rgba(3, 10, 32, 0.88) 0%, rgba(2, 6, 23, 0.96) 100%);
-  border: 1.5px solid rgba(96, 165, 250, 0.65);
+  min-width: 32px;
+  height: 24px;
+  padding: 0 6px;
+  background: linear-gradient(180deg, rgba(6, 12, 32, 0.94) 0%, rgba(2, 6, 23, 0.98) 100%);
+  border: 1.5px solid rgba(255, 226, 89, 0.85); /* Viền vàng kim cúp vô địch */
   border-radius: 5px;
   color: #FFFFFF;
   font-size: var(--font-size-number);
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.75), 0 0 10px rgba(56, 189, 248, 0.4);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 226, 89, 0.35);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
   pointer-events: none;
   user-select: none;
   z-index: 3;
@@ -395,8 +477,8 @@ body {
   margin-top: 10px;
   font-size: var(--font-size-event);
   color: #FFFFFF;
-  background: rgba(5, 18, 52, 0.75);
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: rgba(5, 18, 52, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.4);
   border-radius: 8px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -425,7 +507,7 @@ body {
 .sponsors-footer {
   width: 100%;
   background-color: var(--footer-bg);
-  padding: 18px 20px;
+  padding: 16px 20px;
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.4);
   border-top: 3px solid var(--stadium-cyan);
   margin-top: auto;
@@ -440,14 +522,14 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 32px 48px;
+  gap: 28px 44px;
 }
 
 .sponsor-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
+  height: 36px;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
@@ -457,8 +539,8 @@ body {
 }
 
 .sponsor-logo {
-  max-height: 36px;
-  max-width: 140px;
+  max-height: 34px;
+  max-width: 130px;
   object-fit: contain;
   display: block;
 }
@@ -468,10 +550,10 @@ body {
 /* -------------------------------------------------------------------------- */
 .reveal-item {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--delay-index, 0) * 40ms);
+  transition-delay: calc(var(--delay-index, 0) * 35ms);
 }
 
 .reveal-item.is-visible {
@@ -495,36 +577,34 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/* 9. THIẾT KẾ ĐÁP ỨNG ĐA THIẾT BỊ (RESPONSIVE BREAKPOINTS)                    */
-/* LUÔN DUY TRÌ 5 CỘT (3 HÀNG X 5 CỘT = 15 CẦU THỦ) TRÊN MỌI THIẾT BỊ         */
+/* 9. THIẾT KẾ ĐÁP ỨNG ĐA THIẾT BỊ: LUÔN DUY TRÌ 5 CỘT (3 HÀNG X 5 CỘT)       */
 /* -------------------------------------------------------------------------- */
 
 /* Tablet & Màn hình trung bình (480px - 1023px): 5 cột cân đối */
 @media (max-width: 1023px) and (min-width: 480px) {
   :root {
-    --grid-columns: 5;
     --grid-gap: 8px;
-    --name-col-width: 17%;
+    --name-col-width: 16%;
     --card-radius: 6px;
-    --font-size-name: 10.5px;
+    --font-size-name: 10px;
   }
   
   .poster-container {
-    padding: 24px 12px 20px;
+    padding: 22px 10px 18px;
   }
 
   .header-logo-wrapper {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 10px;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 8px;
   }
 
   .jersey-number {
-    min-width: 26px;
-    height: 20px;
-    font-size: 13px;
-    bottom: 5px;
-    padding: 0 5px;
+    min-width: 25px;
+    height: 19px;
+    font-size: 12px;
+    bottom: 4px;
+    padding: 0 4px;
   }
 
   .event-info {
@@ -533,10 +613,9 @@ body {
   }
 }
 
-/* Điện thoại di động (< 480px): Chuẩn 5 cột x 3 hàng, sắc nét, không bị vỡ */
+/* Điện thoại di động (< 480px): Chuẩn 5 cột x 3 hàng, siêu nét, không bị vỡ */
 @media (max-width: 479px) {
   :root {
-    --grid-columns: 5;
     --grid-gap: 4px;
     --name-col-width: 13px;
     --font-size-name: 7.5px;
@@ -544,11 +623,18 @@ body {
   }
 
   .poster-container {
-    padding: 12px 4px 16px;
+    padding: 10px 4px 16px;
   }
 
   .poster-header {
     margin-bottom: 12px;
+  }
+
+  .header-badge {
+    font-size: 9px;
+    padding: 2px 9px;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
   }
 
   .header-logo-wrapper {
@@ -566,15 +652,16 @@ body {
   }
 
   .poster-subtitle {
-    font-size: 9px;
+    font-size: 8.5px;
     padding: 3px 8px;
     letter-spacing: 0.3px;
     line-height: 1.3;
     border-radius: 12px;
+    gap: 5px;
   }
 
   .team-grid {
-    gap: 4px;
+    gap: 4px !important;
     margin-bottom: 12px;
   }
 
@@ -597,7 +684,7 @@ body {
   .person-photo-wrapper {
     border-width: 1px;
     border-radius: 4px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
   }
 
   .jersey-number {
@@ -633,5 +720,25 @@ body {
   .sponsor-logo {
     max-height: 22px;
     max-width: 80px;
+  }
+}
+
+/* Điện thoại màn hình rất nhỏ (< 360px) */
+@media (max-width: 359px) {
+  :root {
+    --grid-gap: 3px;
+    --name-col-width: 11px;
+    --font-size-name: 6.8px;
+  }
+
+  .poster-container {
+    padding: 8px 2px 14px;
+  }
+
+  .jersey-number {
+    min-width: 15px;
+    height: 12px;
+    font-size: 8.5px;
+    bottom: 2px;
   }
 }

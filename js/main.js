@@ -60,11 +60,21 @@ function renderHeader(data) {
   const subtitleText = data.subtitle || "";
 
   headerContainer.innerHTML = `
+    <div class="header-badge" aria-hidden="true">
+      <span class="badge-dot"></span> MATCHDAY SQUAD ROSTER
+    </div>
     <div class="header-logo-wrapper" title="${escapeHtml(data.teamName || 'Logo Đội')}">
       <img src="${escapeHtml(logoSrc)}" alt="Logo ${escapeHtml(data.teamName || '')}" class="header-logo-img" onerror="this.onerror=null; this.src='assets/Logo.jpg';">
     </div>
     <h1 class="poster-title">${escapeHtml(titleText)}</h1>
-    ${subtitleText ? `<p class="poster-subtitle">${escapeHtml(subtitleText)}</p>` : ""}
+    ${subtitleText ? `
+      <p class="poster-subtitle">
+        <svg class="cup-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+          <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 0 0 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+        </svg>
+        <span>${escapeHtml(subtitleText)}</span>
+      </p>
+    ` : ""}
   `;
 }
 
@@ -118,6 +128,7 @@ function renderGrid(data) {
           </div>
           <div class="person-photo-wrapper">
             <img src="${escapeHtml(photoSrc)}" alt="${escapeHtml(member.name)}${member.role ? ' - ' + escapeHtml(member.role) : ''}" class="person-img" loading="lazy">
+            <div class="card-glass-shine" aria-hidden="true"></div>
           </div>
           ${showRole && member.role ? `<span class="person-role">${escapeHtml(member.role)}</span>` : ""}
         </li>
@@ -150,6 +161,7 @@ function renderGrid(data) {
           <div class="person-photo-wrapper">
             <img src="${escapeHtml(photoSrc)}" alt="${escapeHtml(player.name)}${hasNumber ? ' - Số ' + player.number : ''}" class="person-img" loading="lazy" onerror="this.onerror=null; this.src='${defaultPlaceholder}';">
             ${hasNumber ? `<span class="jersey-number">${player.number}</span>` : ""}
+            <div class="card-glass-shine" aria-hidden="true"></div>
           </div>
         </li>
       `);
