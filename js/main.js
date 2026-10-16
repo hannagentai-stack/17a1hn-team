@@ -140,6 +140,8 @@ function renderGrid(data) {
         ? "assets/placeholder-silhouette.svg" 
         : "assets/placeholder-player.svg";
 
+      const hasNumber = showNumber && (player.number !== undefined && player.number !== null && player.number !== "");
+
       htmlItems.push(`
         <li class="team-grid-item person-card reveal-item" data-type="player" style="--delay-index: ${itemIndex++};">
           <div class="person-name-col">
